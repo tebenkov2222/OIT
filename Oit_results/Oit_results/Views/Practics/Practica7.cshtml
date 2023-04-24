@@ -1,0 +1,48 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>P4 - Контакты</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/p7.css"/>
+</head>
+<body>
+<section class="main-page">
+    <div class="search-panel">
+        <form onsubmit="searchContact(); return false;">
+            <input id="search" name="search" required="required"/>
+            <input type="submit" name="submitSearch" value="Поиск"/>
+        </form>
+    </div>
+    <div id="content" class="content">
+        <div class="table-header">
+            <a>Имя</a>
+            <a class="table-header-number">Номер</a>
+            <a>Удалить</a>
+        </div>
+    </div>
+    <div class="form-contact">
+        <form name="add-contact-form" onsubmit="addContact(); return false;">
+            <div class="form-input-block">
+                <a>Имя</a>
+                <input name="contact-name" required="required"/>
+            </div>
+            <div class="form-input-block">
+                <a>Номер</a>
+                <input type="text" name="contact-number" pattern="[+7]\d{11}" required="required"/>
+            </div>
+            <div class="form-input-block">
+                <input type="submit" value="Добавить"/>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/p7.js"></script>
+</body>
+</html>

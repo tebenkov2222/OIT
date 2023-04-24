@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = Layout;
+}
+
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
+
+<div class="text-center">
+    <h1 class="display-4">Основы интернет технологий, Результаты</h1>
+    <p>На этой странице предтавлены все выпоолненные работы по данному предмету.</p>
+</div>
+<div class="results-div">
+       <div class="labs">
+              <label class="labs-label">Лабы</label>
+
+              <input type="button" value="Lab1" class="standart-button"
+                     onclick="location.href='@Url.Action("Lab1", "Labs")'"/>
+              <input type="button" value="Lab2" class="standart-button"
+                     onclick="location.href='@Url.Action("Lab2", "Labs")'"/>
+              <input type="button" value="Lab3" class="standart-button"
+                     onclick="location.href='http://niardan.ru:8112/'"/>
+       </div> 
+       <div class="practics">
+              <label class="labs-label">Практики</label>
+              <input type="button" value="P1 - Фил Коллинз" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica1", "Practics")'"/>
+              <input type="button" value="P2 - Телефон" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica2", "Practics")'"/>
+              <input type="button" value="P3" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica3", "Practics")'"/>
+              <input type="button" value="P4 - Кинопоиск" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica4", "Practics")'"/>
+              <input type="button" value="P5 - Товары" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica5", "Practics")'"/>
+              <input type="button" value="P6" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica6", "Practics")'"/>
+              <input type="button" value="P7 - Контакты" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica7", "Practics")'"/>
+              <input type="button" value="P8" class="standart-button"
+                     onclick="location.href='@Url.Action("Practica8", "Practics")'"/>
+       </div>
+</div>

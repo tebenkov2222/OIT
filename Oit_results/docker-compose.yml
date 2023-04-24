@@ -1,0 +1,8 @@
+﻿version: "3"
+
+services:
+  web:
+    image: tebenkov2222/oit_results:1.0
+    restart: always
+    ports:
+      - 8111:80

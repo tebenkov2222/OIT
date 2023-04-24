@@ -1,0 +1,25 @@
+
+version: '3.8'
+services:
+  php:
+    image: php:7.2-apache
+    ports:  
+      - 8180:80
+    volumes:
+      - ./src:/var/www
+    networks:
+      - tools_php-network
+  phpmyadmin:
+    image: phpmyadmin:latest 
+    environment:
+      - PMA_ARBITRARY=1
+      - UPLOAD_LIMIT=1024M
+      - MEMORY_LIMIT=1024M
+      - MAX_EXECUTION_TIME=300  
+    ports:
+      - 8181:80
+    networks:
+      - tools_php-network        
+networks:
+  tools_php-network:
+    driver: bridge

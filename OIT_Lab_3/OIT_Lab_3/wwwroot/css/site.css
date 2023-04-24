@@ -1,0 +1,270 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+.form-answers-count{
+  opacity: 0;
+}
+.input-form-group{
+  margin: 20px 0;
+  
+}
+.input-form-label{
+  display: block;
+  font-size: 1.5rem;
+}
+.input-form-control{
+  
+}
+.input-form-group-text input{
+  width: 30em;
+  padding: 0 1em;
+  height: 3em;
+  border-radius: 20px;
+  border: solid 2px;
+  vertical-align: middle;
+}
+.input-form-group-checkbox{
+  justify-content: center;
+  display: flex;
+}
+.input-form-group-checkbox label{
+  margin: 0 10px;
+  order: 2;
+}
+.input-form-group-checkbox input{
+  order: 1;
+  margin: auto 10px;
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+  justify-content: center;
+}
+.input-form-btn{
+  border: solid 2px;
+}
+.answers-title{
+  display: block;
+  font-size: 1.5rem;
+}
+.form-answers-add{
+  border: solid 1px black;
+  max-width: fit-content;
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+.form-answers-add input, button{
+  padding: 0 1em;
+  height: 2em;
+  border-radius: 10px;
+  border: solid 1px;
+  vertical-align: middle;
+}
+.form-answers-add input{
+  width: 20em;
+}
+.form-answers-add button{
+  width: 8em;
+  text-align: center;
+  
+}
+.create-quiz{
+  display: block;
+  border-bottom: solid 1px black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.create-quiz label, input{
+  display: block;
+  margin: 10px auto;
+}
+.create-quiz label{
+  display: block;
+  margin: 10px auto;
+  font-size: 1.5rem;
+}
+.create-quiz input{
+  width: 250px;
+  height: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  border: solid 1px;
+  vertical-align: middle;
+  font-size: 1rem;  
+}
+.open-quiz{
+  display: block;
+  border-bottom: solid 1px black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.open-quiz label, input{
+  display: block;
+  margin: 10px auto;
+}
+.open-quiz label{
+  display: block;
+  margin: 10px auto;
+  font-size: 1.5rem;
+}
+.open-quiz input{
+  width: 250px;
+  height: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  border: solid 1px;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.select-quiz-button{
+  margin: 5px;
+}
+.select-quiz-div{
+  display: block;
+  margin: 10px auto;
+  margin-top: 30px;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+.pass-quiz-answered-text{
+  font-size: 0.8rem;
+  color: gray;
+}
+.pass-quiz-description{
+  font-size: 1.3rem;
+  font-style: normal;
+}
+.pass-quiz-button{
+  width: 250px;
+  height: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  border: solid 1px;
+  vertical-align: middle;
+  font-size: 1rem;
+  margin: 10px auto;
+}
+.pass-quiz-answers-div{
+  margin-top: 30px;
+}
+.pass-quiz-answers-label{
+  font-size: 1.5rem;
+  font-style: normal;
+}
+.result-answer-div{
+  background-color: #2125294a;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+}
+.result-answer-label, .result-answer-label-percent{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;  
+}
+.result-answer-label-percent{
+  font-size: 0.7rem;
+}
+.result-quiz-description{
+  margin-top: 30px;
+  font-size: 1.8rem;
+}
+.result-quiz-full-count{
+  margin-top: -10px;
+  font-size: 1.3rem;
+}
+.result-quiz-answers-title{
+  margin-top: 30px;
+  font-size: 1.8rem;
+}
+.result-quiz-name{
+  margin-top: 30px;
+}
+.created-quiz-uid{
+  font-size: 1.8rem;
+}
+.standart-button{
+  width: 250px;
+  height: fit-content;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  border: solid 1px;
+  vertical-align: middle;
+  font-size: 1rem;
+  margin: 10px auto;
+}

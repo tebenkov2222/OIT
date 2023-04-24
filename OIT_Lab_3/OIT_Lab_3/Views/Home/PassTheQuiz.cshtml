@@ -1,0 +1,29 @@
+﻿@model PassTheQuizModel
+@{
+    Layout = Layout;
+    ViewData["Title"] = @Model.Quize.Name;
+}
+<div class="text-center">
+    <div class="pass-quiz-div">
+        <h1 class="display-4 pass-quiz-name">@Model.Quize.Name</h1>
+        @if (Model.IsAnswered)
+        {
+            <h2 class="pass-quiz-answered-text">Вы уже давали ответ на этот опрос. Вы можете изменить свое решение</h2>
+        }
+        <p class="pass-quiz-description">@Model.Quize.Description</p>
+        <div class="pass-quiz-answers-div">
+        <label class="pass-quiz-answers-label">Выберите ответ:</label>
+            @foreach (var answer in Model.Quize.Answers)
+            {
+                <div class="pass-quiz-answer-div">
+                    <form asp-action="SendAnswer">
+                        <input type="hidden" name="uid" value="@Model.Quize.Uid"/>
+                        <input type="hidden" name="answerId" value="@answer.AnswerId"/>
+                        <input type="submit" class="pass-quiz-button" value="@answer.Answer1"/>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

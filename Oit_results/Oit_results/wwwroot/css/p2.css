@@ -1,0 +1,265 @@
+@font-face {
+    font-family: roboto;
+    src: url("../fonts/Roboto.ttf");
+}
+*{
+    box-sizing: border-box;
+    font-family: roboto;
+}
+.link1-mini{
+    font-weight: 400;
+    font-size: 12px;
+}
+.link1-mini:hover{
+    color:#FF7777;
+}
+
+.container-mini{
+    width: 200px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+.img-mini{
+   width: 100%;
+    margin-bottom: 10px;
+}
+
+.name-mini{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.name-mini:hover{
+    color: #FF7777;
+}
+
+.about-mini{
+    color:#999999;
+    font-size: 12px;
+    line-height: 14.06px;
+    margin-left: 13px;
+}
+
+.costs-mini{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.cost-mini{
+    font-weight: 700;
+    font-size: 24px;
+}
+.rub-mini{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.buy-mini{
+    font-size: 12px;
+    color: #FF7777;
+    display: block;
+    text-align: center;
+}
+
+.buy-mini:hover{
+    text-decoration: none;
+}
+
+.links{
+    margin-bottom: 22px;
+}
+.link{
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+
+}
+.link:hover{
+    color:#FF7777;
+}
+.container{
+    display: flex;
+    max-width: 1920px;
+}
+.right{
+    padding-top: 26px;
+    padding-left: 25px;
+}
+
+.left{
+    padding: 62px 140px 73px 20px;
+}
+
+.img{
+    width: 451px;
+    height: 451px;
+    margin-bottom: 10px;
+}
+
+.name{
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.old{
+    text-decoration: line-through;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+
+.about{
+    color:#999999;
+    font-size: 12px;
+    line-height: 14.06px;
+    margin-bottom: 15px;
+}
+
+.costs{
+    margin-bottom: 20px;
+}
+
+.cost{
+    font-weight: 700;
+    display: block;
+    font-size: 24px;
+    color: #FF7777;
+
+}
+.rub{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.col{
+    font-weight: 400;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.colors3{
+    display: inline-block;
+}
+
+.c_check{
+    display: none;
+
+}
+
+.color_item{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.c_check+label::before {
+    display: inline-block;
+    content: '';
+    cursor: pointer;
+    width: 48px;
+    height: 47.42px;
+    border: none;
+    background-color: #D25324;
+    margin-bottom: 7px;
+}
+
+.black+label::before {
+    background-color: #302F30;
+}
+
+.blue+label::before {
+    background-color: #4BA9FF;
+}
+
+.colors3 input[type=radio]:checked + label {
+    background-color: #D25324;
+    font-size: 4px;
+}
+
+.black2 input[type=radio]:checked + label {
+    background-color: #302F30;
+    font-size: 4px;
+}
+
+.blue2 input[type=radio]:checked + label {
+    background-color: #4BA9FF;
+    font-size: 4px;
+}
+
+.black2  input[type=radio]:hover + label {
+    background-color: #747776;
+    font-size: 4px;
+}
+
+.blue2 input[type=radio]:hover + label {
+    background-color: #b9dbf4;
+    font-size: 4px;
+}
+
+.red input[type=radio]:hover + label {
+    background-color: #ee9484;
+    font-size: 4px;
+}
+
+.buttons{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.btn1 {
+    width: 173px;
+    height: 52px;
+    background-color: #FF7777;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn2{
+    width: 173px;
+    height: 52px;
+    background-color: #FFFFFF;
+    border-color: #FF7777;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FF7777;
+    cursor: pointer;
+}
+
+.btn1:hover{
+    opacity: 0.7;
+}
+
+.btn2:hover{
+    opacity: 0.7;
+    background-color: #FF7777;
+    color: #FFFFFF;
+}
+
+.list{
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.pink{
+    color:#FF7777;
+    font-weight: 700;
+}
+.mini{
+    margin-bottom: 30px;
+    width: 200px;
+}

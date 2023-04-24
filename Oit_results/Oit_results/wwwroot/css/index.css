@@ -1,0 +1,31 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+input{
+    margin: 50px;
+    display: block;
+    width: 100px;
+    height: 50px;
+}
+.standart-button{
+    width: 250px;
+    height: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    border: solid 1px;
+    vertical-align: middle;
+    font-size: 1rem;
+    margin: 10px auto;
+}
+.results-div{
+    display: flex;
+    justify-content: space-around;
+}
+.labs-label{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}

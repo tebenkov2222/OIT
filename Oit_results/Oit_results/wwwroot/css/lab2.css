@@ -1,0 +1,40 @@
+body{
+  display:flex;
+}
+body>div{
+  margin: 10px;
+}
+.input_data>button{
+  display: block;
+  margin-top:10px;
+ 
+  margin-left: auto;
+  margin-right: auto;
+}
+.output_form{
+  border: 1px, solid;
+}
+.div_radio{
+  display: flex;
+}
+.input_radio{
+  order: 1;
+}
+.label_radio{
+  order: 2;
+}
+.div_text{
+  margin-bottom: 10px;
+}
+.div_checkbox{
+  display: flex;
+}
+.input_checkbox{
+  order: 1;
+}
+.label_checkbox{
+  order: 2;
+}
+.input_hiden{
+  display: none;
+}

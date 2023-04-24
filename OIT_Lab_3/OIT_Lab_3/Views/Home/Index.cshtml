@@ -1,0 +1,34 @@
+﻿@model IndexModel
+@{
+    ViewData["Title"] = "EasyQuizy";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="create-quiz">
+        <label>Создать опрос</label>
+        <input type="button" value="Создать" class="standart-button"
+               onclick="location.href='@Url.Action("CreateQuiz", "Home")'"/>
+    </div>
+    <div class="open-quiz">
+        <label> Открыть опрос</label>
+        <form asp-action="PassTheQuiz" method="get">
+            <input type="text" name="uid" placeholder="Uid опроса" required pattern=".{8}"/>
+            <input type="submit" class="standart-button" value="Пройти опрос"/>
+        </form>
+    </div>
+    <div class="select-quiz">
+        <label class="select-quiz-label">Доступные опросы</label>
+            <div class="select-quiz-div">
+                @foreach (var quiz in Model.PublicQuizes)
+                {
+                    <div style="display: flex; justify-content: center">
+                        <form asp-action="PassTheQuiz" method="get">
+                            <input type="hidden" name="uid" value="@quiz.Uid"/>
+                            <button class="standart-button select-quiz-button" type="submit">@quiz.Name</button>
+                        </form>
+                    </div>
+                }
+            </div>
+    </div>
+</div>

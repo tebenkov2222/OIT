@@ -1,0 +1,19 @@
+﻿version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 8332:5432
+    environment:
+      POSTGRES_PASSWORD: '12345678'
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data/
+      - ./postgresql/database.sql:/app/database.sql
+      - ./postgresql/database.sql:/docker-entrypoint-initdb.d/database.sql
+  web:
+    image: tebenkov2222/easy_quizy:1.0
+    restart: always
+    ports:
+      - 8112:80

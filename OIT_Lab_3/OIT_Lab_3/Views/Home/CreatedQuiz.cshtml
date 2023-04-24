@@ -1,0 +1,13 @@
+﻿@model TestEF.DataBase.Quize
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Опрос создан";
+}
+<div class="text-center">
+    <h1 class="display-4 created-quiz-title">Опрос "@Model.Name" Был создан</h1>
+    <p class="created-quiz-uid" style="justify-content: center; display: flex; margin-bottom: 30px">UID опроса = @Model.Uid</p>
+    <form asp-action="PassTheQuiz" method="get">
+        <input type="hidden" name = "uid" value="@Model.Uid"/>
+        <input type="submit" class="standart-button created-quiz-push" value="Пройти опрос"/>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+﻿@model ResuiltsQuizModel
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Результаты";
+}
+@{
+    int _minWidth = 200;
+    int _maxWidth = 400;
+}
+<div class="text-center">
+    <h1 class="display-3 result-quiz-title">Результаты опроса:</h1>
+    <h1 class="display-4 result-quiz-name">@Model.Quize.Name</h1>
+    <p class="result-quiz-description">@Model.Quize.Description</p>
+    <p class="result-quiz-full-count">Всего ответило: @Model.FullCountAnswers</p>
+    <div class="result-quiz-answers">
+        <label class="result-quiz-answers-title">Все ответы</label>
+        @foreach (var answer in @Model.Answers)
+        {
+            <div class="result-answer-div" style="width: @(_minWidth + (_maxWidth - _minWidth) * answer.Percent)px">
+                <div class="result-answer-texts">
+                    <p class="result-answer-label-percent">@(answer.Percent * 100)%</p>
+                    <p class="result-answer-label">@answer.Answer</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

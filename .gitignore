@@ -1,0 +1,5 @@
+*bin/
+*obj/
+OIT_Lab_3/postgresql/data/
+compose/postgresql/data/
+TestPhp/src/uploads/

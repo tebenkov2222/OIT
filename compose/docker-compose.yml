@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 8332:5432
+    environment:
+      POSTGRES_PASSWORD: '12345678'
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data/
+      - ./postgresql/database.sql:/app/database.sql
+      - ./postgresql/database.sql:/docker-entrypoint-initdb.d/database.sql
+  easy_quizy:
+    image: tebenkov2222/easy_quizy:1.0
+    restart: always
+    ports:
+      - 8112:80
+  oit_results:
+    image: tebenkov2222/oit_results:1.0
+    restart: always
+    ports:
+      - 8111:80
+  php:
+    image: php:7.2-apache
+    ports:  
+      - 8113:80
+    volumes:
+      - ../TestPhp/src:/var/www

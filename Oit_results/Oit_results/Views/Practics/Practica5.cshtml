@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>P1 - Товары</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+
+<body>
+<table name="table" id="table">
+    <tr name = "InputProduct">
+            <td>Товары</td>
+            <td>Цена товара</td>
+            <td>Количество товаров</td>
+        </tr>
+    <tr name="InputProduct">
+        <td>Товар 1</td>
+        <td><input name="InputPrice"></td>
+        <td><input name="InputCount"></td>
+    </tr>
+    <tr name="InputProduct">
+        <td>Товар 2</td>
+        <td><input name="InputPrice"></td>
+        <td><input name="InputCount"></td>
+    </tr>
+</table>
+<button class="" onclick="Calculate()" value="Sum">Calculate</button>
+<a id="Result"></a>
+
+@*<br/>
+<button class="" onclick="alert(Sum(products))" value="Sum">Alert Calculate</button>
+<br/>
+<button class="" onclick="AlertDiscounts()" value="Sum">Alert Discounts</button>*@
+@*<header>
+        <img class="img-header" src="~/imgs/UnityLogo.png" />
+    </header>
+    <footer>
+        <a class="d-flex justify-content-center">Copyright 2023</a>
+    </footer>*@
+</body>
+
+<script>
+const products = [
+    {id:1, price:10, count:3},
+    {id:2, price:7, count:2}
+]
+const discounts = [
+    {
+        percent:10,
+        conditions:
+        {
+            minOrderSum:20,
+            
+        }
+    }
+]
+function Sum(products)
+{
+    var sum = 0;
+    for (const p of products){
+        sum = sum + p.price * p.count;
+        }
+    return sum;
+}
+function SumWithObject(products)
+{
+    var sum = 0;
+    for (const p of products){
+        sum = sum + p.price * p.count;
+        }
+    return {sum};
+}
+function SumDiscounts(products, discounts)
+{
+    var sumProducts = Sum(products)
+    var sumWithDiscounts = 0;
+    for (const p of products)
+    {
+        var currentProductSum = p.price*p.count;
+        for (const d of discounts)
+        {
+            if (sumProducts > d.conditions.minOrderSum){
+                if (!d.conditions.products)
+                {
+                    sumWithDiscounts = sumWithDiscounts * (1-d.percent/100)
+                }
+                else if (d.conditions.products.has(d.id))
+                {
+                    sumWithDiscounts = sumWithDiscounts * (1-d.percent/100)
+                }
+                
+            }
+        }
+        sumWithDiscounts += currentProductSum;
+        
+    }
+    var sum = sumWithDiscounts;
+    var discount = sumProducts-sumWithDiscounts
+    return { sum,discount}
+}
+function AlertDiscounts()
+{
+    const sumProducts = SumWithObject(products)
+    const sumDiscount = SumDiscounts(products, discounts)
+    alert('Сумма = ' + sumProducts.sum + ', СуммаСкидки = ' + sumDiscount.sum + ', Скидка = ' + sumDiscount.discount)
+}
+function Calculate()
+{
+    var products = [];
+
+    var InputPrices = document.getElementsByName("InputPrice")
+    var InputCounts = document.getElementsByName("InputCount")
+    for(let i = 0; i < InputPrices.length; i++) {
+        products.push({id:i, price:InputPrices[i].value, count:InputCounts[i].value})
+    }
+    
+    const sumProducts = SumWithObject(products)
+    const sumDiscount = SumDiscounts(products, discounts)
+    alert('Сумма = ' + sumProducts.sum + ', СуммаСкидки = ' + sumDiscount.sum + ', Скидка = ' + sumDiscount.discount)
+    
+}
+</script>
+</html>

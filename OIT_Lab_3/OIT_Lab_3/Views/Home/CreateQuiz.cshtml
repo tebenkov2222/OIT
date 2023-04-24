@@ -1,0 +1,90 @@
+﻿@model CreateQuizModel
+@{
+    Layout = Layout;
+    ViewData["Title"] = "Создать опрос";
+
+}
+<div class="text-center">
+    <h1 class="display-4">Создать опрос</h1>
+    <form id="input_form" asp-controller="Home" asp-action="CreateQuiz" onsubmit="return validateForm()">
+        <div class="input-form-group input-form-group-text">
+            <label asp-for="Name" class="input-form-label" >Имя</label>
+            <input type="text" asp-for="Name" class="input-form-control input-form-control-text" placeholder="Имя: мин. 3, макс. 16" pattern=".{3,16}" required/>
+        </div>
+        <div class="input-form-group input-form-group-text">
+            <label asp-for="Description" class="input-form-label" >Описание</label>
+            <input type="text" asp-for="Description" class="input-form-control input-form-control-text" placeholder="Описание: мин. 3, макс. 64" pattern=".{3,64}" required/>
+        </div>
+        <div class="input-form-group input-form-group-checkbox">
+            <label asp-for="IsPrivate" class="input-form-label ">Приватный</label>
+            <input type="checkbox" asp-for="IsPrivate" class="input-form-control input-form-control-checkbox" />
+        </div>
+
+    </form>
+    <a class="answers-title">Ответы</a>
+    <div class="form-answers">
+        <div class="form-answers-add">
+            <input type="text" id="form-answers-add-input" class="form-answers-add-input" placeholder="Ответ: мин. 3, макс. 16" pattern=".{1,16}" required/>
+            <button class="standart-button form-answers-add-button" onclick="AddAnswer()">Добавить</button>
+        </div>
+        <input type="text" id="form-answers-count" class="form-answers-count" />
+        <div id="form-answers-content" class="form-answers-content">
+        </div>
+    </div>
+    <div class="input-form-group">
+        <input type="submit" value="Отправить" form="input_form" class="standart-button input-form-btn" />
+    </div>
+</div>
+<script>
+function AddAnswer()
+{
+    let answer = document.getElementById("form-answers-add-input");
+    if (!answer.checkValidity())
+    {
+        answer.reportValidity();
+        return;
+    }
+    
+    let answerInput = answer.value;
+    
+    let formAnswersContent = document.getElementById("form-answers-content");
+    
+    
+    let divItem = document.createElement("div");
+    divItem.classList.add("answer-item");
+    let labelItem = document.createElement("label");
+    labelItem.classList.add("answer-item-label");
+    labelItem.innerHTML = answerInput;
+    let buttonItem = document.createElement("button");
+    buttonItem.classList.add("answer-item-delete-button");
+    buttonItem.innerHTML = "Удалить"; 
+    buttonItem.onclick = function() {
+        RemoveAnswer(divItem);
+    };
+    let inputItem = document.createElement("input");
+    inputItem.type = "hidden";
+    inputItem.name = "Answers";
+    inputItem.setAttribute("form", "input_form");
+    inputItem.value = answerInput;
+    divItem.appendChild(labelItem);
+    divItem.appendChild(buttonItem);
+    divItem.appendChild(inputItem);
+    
+    formAnswersContent.appendChild(divItem);
+}
+function RemoveAnswer(answerDiv)
+{
+    answerDiv.remove();
+}
+function validateForm()
+{
+    let countItems = document.getElementsByName("Answers").length;
+    let answer = document.getElementById("form-answers-count");
+    if (countItems < 2){
+        answer.setCustomValidity("Введите как минимум 2 ответа.");
+        answer.reportValidity();
+        return false;
+    }
+    return true;
+}
+</script>

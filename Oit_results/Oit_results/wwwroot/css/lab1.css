@@ -1,0 +1,159 @@
+.header-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    margin-bottom: 2em;
+    width: 50%;
+}
+.nav-bar {
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-bar li {
+    padding: 5px 10px;
+}
+.main-page {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu{
+    width: min-content;
+    right: 0em;
+    background-color: white;
+    float: right;
+    border: 2px solid #0b97c4;
+}
+
+.main-page{
+    width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.main-img{
+    width: 10em;
+    left: auto;
+    float: left;
+}
+.name{
+    text-align: center;
+    font-size: 30px;
+}
+.sign{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: min-content;
+}
+.docker-linux-img{
+    width: 30em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.docker-linux-img-descr{
+    text-align: center;
+    display: block;
+}
+footer{
+    bottom: 0px;
+    text-align: center;
+}
+.compare-table td{
+    width: 10em;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.btn-up{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+.btn-up img{
+    width: 5em;
+
+}
+.btn-up_hide{
+    display: none;
+}
+.window-img{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.window-img img{
+    width: 1024px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    border-radius: 50px;
+}
+.window-img_hide{
+    display: none;
+    
+}
+body{
+    background-image: linear-gradient(white, #38cfff , white);
+}
+@media (min-width: 1024px) {
+    
+    header {
+        display: flex;
+        justify-content: space-around;
+    }
+    .logo {
+        font-size: 16px;
+    }
+}
+@media (max-width: 1024px) {
+    header {
+        display: block;
+    }
+    .main-page {
+        width: auto;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .nav-bar li {
+        display: block;
+        justify-content: center;
+    }
+    .nav-bar {
+        display: block;
+        text-align: center;
+        
+    }
+    .name {
+        display: block;
+    }
+    .main-img{
+        display: block;
+        width: 10em;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .logo {
+        font-size: 100px;
+    }
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        left: 0;
+        width: 100%;
+        float: none;
+    }
+    .docker-linux-img{
+        width: 100%;
+    }
+}
