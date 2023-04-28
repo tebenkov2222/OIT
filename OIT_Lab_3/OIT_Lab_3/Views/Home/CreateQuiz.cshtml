@@ -9,11 +9,11 @@
     <form id="input_form" asp-controller="Home" asp-action="CreateQuiz" onsubmit="return validateForm()">
         <div class="input-form-group input-form-group-text">
             <label asp-for="Name" class="input-form-label" >Имя</label>
-            <input type="text" asp-for="Name" class="input-form-control input-form-control-text" placeholder="Имя: мин. 3, макс. 16" pattern=".{3,16}" required/>
+            <input type="text" asp-for="Name" class="input-form-control input-form-control-text" placeholder="Имя: мин. 3, макс. 16" pattern="^.{3,16}$" required/>
         </div>
         <div class="input-form-group input-form-group-text">
             <label asp-for="Description" class="input-form-label" >Описание</label>
-            <input type="text" asp-for="Description" class="input-form-control input-form-control-text" placeholder="Описание: мин. 3, макс. 64" pattern=".{3,64}" required/>
+            <input type="text" asp-for="Description" class="input-form-control input-form-control-text" placeholder="Описание: мин. 3, макс. 64" pattern="^.{3,64}$" required/>
         </div>
         <div class="input-form-group input-form-group-checkbox">
             <label asp-for="IsPrivate" class="input-form-label ">Приватный</label>
@@ -24,7 +24,7 @@
     <a class="answers-title">Ответы</a>
     <div class="form-answers">
         <div class="form-answers-add">
-            <input type="text" id="form-answers-add-input" class="form-answers-add-input" placeholder="Ответ: мин. 3, макс. 16" pattern=".{1,16}" required/>
+            <input type="text" id="form-answers-add-input" class="form-answers-add-input" placeholder="Ответ: мин. 1, макс. 16" pattern="^.{1,16}$" required/>
             <button class="standart-button form-answers-add-button" onclick="AddAnswer()">Добавить</button>
         </div>
         <input type="text" id="form-answers-count" class="form-answers-count" />

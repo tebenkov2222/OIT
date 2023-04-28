@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>P6 - Погода</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/p6.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<header>
+    
+</header>
+<body>
+  <p class="loading">Идет загрузка данных о погоде...</p>
+  <p class="error">Возникла непредвиденная ошибка: </p>
+  <table class="weather_blank">
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td>сегодня</td>
+    </tr>
+    <tr>
+      <td>завтра</td>
+    </tr>
+    <tr>
+      <td>послезавтра</td>
+    </tr>
+  </table>
+  <label for="cities" class="cities">Выберите город:</label>
+  <select name="cities" id="cities" class="cities_list" onchange="changeCity()">
+    <option value="0">Ижевск</option>
+    <option value="1">Токио</option>
+    <option value="2">Венеция</option>
+  </select>
+  <script>
+    window.addEventListener("load", function(event) {
+      getSavedData();
+    });
+  </script>
+</body>
+<footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/p6.js"></script>
+</footer>

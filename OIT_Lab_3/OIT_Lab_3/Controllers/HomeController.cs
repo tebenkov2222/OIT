@@ -136,6 +136,21 @@ namespace OIT_Lab_3.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateQuiz(CreateQuizModel createQuizModel)
         {
+            Console.WriteLine($"{createQuizModel.Name}");
+            Console.WriteLine($"{createQuizModel.Description}");
+            Console.WriteLine($"{createQuizModel.Answers}");
+            if ((createQuizModel.Description == null ||createQuizModel.Description.Length < 3 || createQuizModel.Description.Length > 64) ||
+                (createQuizModel.Name == null || createQuizModel.Name.Length < 3 || createQuizModel.Name.Length > 16) || 
+                (createQuizModel.Answers == null || createQuizModel.Answers.Length < 2) ||
+                (createQuizModel.Answers.Any(a => a.Length < 1 || a.Length > 16)))
+            {
+                return RedirectToAction("ErrorPassTheQuiz", new ErrorPassTheQuizModel()
+                {
+                    Log = $"При обработке запроса произошла ошибка. Попробуйте еще раз."
+                });
+            }
+                        
+            
             var uid = UidGenerator.GenerateUid(_postgresContext.Quizes.Count());
             Quize quize = new Quize() {Name = createQuizModel.Name, Description = createQuizModel.Description, Uid = uid, IsPrivate = createQuizModel.IsPrivate};
             _postgresContext.Quizes.Add(quize);

@@ -27,7 +27,7 @@ public class PracticsController : Controller
     }
     public IActionResult Practica6()
     {
-        return NotFound();
+        return View();
     }
     public IActionResult Practica7()
     {

@@ -1,5 +1,6 @@
 let contacts = []
 let showContact = []
+
 function addContact(){
     let form_name = document.forms['add-contact-form']['contact-name'].value
     let form_number = document.forms['add-contact-form']['contact-number'].value
@@ -12,6 +13,18 @@ function addContact(){
     console.log(contacts)
     removeAll();
     showContacts(contacts);
+    saveToLocalStorage(contacts);
+}
+function saveToLocalStorage(contacts){
+    localStorage.setItem('p7_contacts', JSON.stringify(contacts))
+}
+function loadContactsFromLocalStorage(){
+    console.log('loadContactsFromLocalStorage');
+    console.log(localStorage.hasOwnProperty('p7_contacts'));
+    console.log(JSON.parse(localStorage.getItem('p7_contacts')));
+    if(localStorage.hasOwnProperty('p7_contacts')){
+        contacts = JSON.parse(localStorage.getItem('p7_contacts'));
+    }
 }
 function searchContact(){
     let searchValue = document.getElementById("search").value;
@@ -62,6 +75,7 @@ function RemoveContact(contact, divcontact){
     if (index > -1) { // only splice array when item is found
         contacts.splice(index, 1); // 2nd parameter means remove one item only
         divcontact.remove();
+        saveToLocalStorage(contacts);
     }
     else{
         console.error("contact not found")

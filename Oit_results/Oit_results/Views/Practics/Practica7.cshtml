@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>P4 - Контакты</title>
+    <title>P7 - Контакты</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/p7.css"/>
 </head>
@@ -44,5 +44,11 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/p7.js"></script>
+<script>
+window.addEventListener("load", function(event) {
+    loadContactsFromLocalStorage();
+    showContacts(contacts);
+  });
+</script>
 </body>
 </html>
