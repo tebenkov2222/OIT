@@ -9,6 +9,18 @@ public class PracticsController : Controller
     {
         return View();
     }
+    public IActionResult Practica1Person()
+    {
+        return View();
+    }
+    public IActionResult Practica1Table()
+    {
+        return View();
+    }
+    public IActionResult Practica1Source()
+    {
+        return View();
+    }
     public IActionResult Practica2()
     {
         return View();
