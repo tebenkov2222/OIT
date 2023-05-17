@@ -3,17 +3,17 @@
 require_once __DIR__ . '/scripts/fields.php';
 session_start();
 
-if(CheckField($_SESSION['deliveryType'], true, '/^[1,2]{1}$/'))
+if($_SESSION['deliveryData'] == 1)
 {
 	header('Location: /results.php');
 	exit();
 }
-if(CheckField($_SESSION['phone'], true, '/^[+7]\d{11}$/'))
+if($_SESSION['clientData'] == 1)
 {
 	header('Location: /deliveryType.php');
 	exit();
 }
-if(!CheckField($_SESSION['clientType'], true, '/^[1,2]{1}$/'))
+if($_SESSION['clientTypeExist'] != 1)
 {
 	header('Location: /clientType.php');
 	exit();
@@ -41,13 +41,23 @@ if($_SESSION['clientType'] == 2)
 	            	  	<label class="" >
 					    	Имя
 					  	</label>
-	            		<input class="form-control" type="text" name="name" required>
+	            		<input class="form-control" type="text" name="name" value="<?php echo $_SESSION['name']; ?>" required>
+	            		<?php 
+					  		if($_GET['errorType'] == "name"){
+					  			echo '<b class="errorForm">Имя неверно введено</b><br>';
+					  		}
+					  	 ?>
 	            	</div>
 					<div class="form-group">
 	            	  	<label class="" >
 					    	Телефон
 					  	</label>
-	            		<input class="form-control" type="text" name="phone" pattern="^[+7]\d{11}$" required>
+	            		<input class="form-control" type="text" name="phone" pattern="^[+7]\d{11}$" value="<?php echo $_SESSION['phone']; ?>" required>
+	            		<?php 
+					  		if($_GET['errorType'] == "phone"){
+					  			echo '<b class="errorForm">Телефон неверно введен</b><br>';
+					  		}
+					  	 ?>
 	            	</div>
 	                <button type="submit" class="btn btn-primary">Submit</button>
             	</form>

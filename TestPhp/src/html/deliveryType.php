@@ -3,17 +3,18 @@
 require_once __DIR__ . '/scripts/fields.php';
 session_start();
 
-if(CheckField($_SESSION['deliveryType'], true, '/^[1,2]{1}$/'))
+if($_SESSION['deliveryData'] == 1)
 {
 	header('Location: /results.php');
 	exit();
 }
-if(!CheckField($_SESSION['clientType'], true, '/^[1,2]{1}$/'))
+if($_SESSION['clientTypeExist'] != 1)
 {
 	header('Location: /clientType.php');
 	exit();
 } 
-if(!CheckField($_SESSION['phone'], true, '/^[+7]\d{11}$/'))
+
+if($_SESSION['clientData'] != 1)
 {
 	if($_SESSION['clientType'] == 1) header('Location: /clientIndividualData.php');
 	else header('Location: /clientEntityData.php');
@@ -37,33 +38,43 @@ if(!CheckField($_SESSION['phone'], true, '/^[+7]\d{11}$/'))
 				<input type="hidden" name="requestType" value="deliveryType">
 
 				<div class="form-check">
-            	<input class="form-check-input" type="radio" name="deliveryType" value="1" onchange="SetDelivery(1, this.checked);" required checked>
+            	<input class="form-check-input" type="radio" name="deliveryType" value="1" <?php echo $_SESSION['deliveryType'] == 1?"checked":""; ?> onchange="SetDelivery(1, this.checked);" required checked>
             	  <label class="form-check-label">
 				    Доставка
 				  </label>
 				</div>
-				<div id="adress-div" class="form-group">
+				<div style="display: <?php echo $_SESSION['deliveryType'] != 2?"block":"none"; ?>;" id="adress-div" class="form-group">
             	  	<label class="" >
 				    	Адрес доставки
 				  	</label>
-            		<input id="adress-input" class="form-control" type="text" name="adress" required>
+            		<input id="adress-input" class="form-control" type="text" name="adress" required <?php echo $_SESSION['deliveryType'] == 2?"disabled":""; ?>>
+            		<?php 
+				  		if($_GET['errorType'] == "adress"){
+				  			echo '<b class="errorForm">Адрес неверно введен</b><br>';
+				  		}
+				  	 ?>
             	</div>
 				<div class="form-check">
-            	<input class="form-check-input" type="radio" name="deliveryType" value="2" onchange="SetDelivery(2, this.checked);" required>
+            	<input class="form-check-input" type="radio" name="deliveryType" value="2" <?php echo $_SESSION['deliveryType'] == 2?"checked":""; ?>  onchange="SetDelivery(2, this.checked);" required >
         	  	<label class="form-check-label">
 			    	Самовывоз
 			  	</label>
 			  	</div>
-				<div style="display: none;" id="pickup-div" class="form-group">
+				<div style="display: <?php echo $_SESSION['deliveryType'] == 2?"block":"none"; ?>;" id="pickup-div" class="form-group">
             	  	<label class="" >
 				    	Адрес пункта выдачи
 				  	</label>
-				  	<select id="pickup-input" name="pickupAdress" class="form-select" aria-label="Адрес самовывоза" required disabled>
+				  	<select id="pickup-input" name="pickupAdress" class="form-select" aria-label="Адрес самовывоза" required <?php echo $_SESSION['deliveryType'] == 1?"disabled":""; ?> >
 					  <option selected>Выберите адрес</option>
 					  <option value="1">ул. Сталина, 76</option>
 					  <option value="2">пр. Славы, 80</option>
 					  <option value="3">пер. Гагарина, 29</option>
 					</select>
+					<?php 
+				  		if($_GET['errorType'] == "pickupAdress"){
+				  			echo '<b class="errorForm">Адрес неверно введен</b><br>';
+				  		}
+				  	 ?>
             	</div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

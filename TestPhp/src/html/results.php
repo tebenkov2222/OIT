@@ -18,6 +18,23 @@
 		header('Location: /deliveryType.php');
 		exit();
 	}
+	if($_SESSION['deliveryData'] != 1)
+	{
+		header('Location: /deliveryType.php');
+		exit();
+	}
+	if($_SESSION['clientTypeExist'] != 1)
+	{
+		header('Location: /clientType.php');
+		exit();
+	} 
+	if($_SESSION['clientData'] != 1)
+	{
+		if($_SESSION['clientType'] == 1) header('Location: /clientIndividualData.php');
+		else header('Location: /clientEntityData.php');
+		exit();
+	} 
+
 	if (isset($_SESSION['clientType']))
 	{
 	    $clientType = $_SESSION['clientType'];
@@ -87,6 +104,14 @@
 			?>
 		</div>
 	</div>
+	<div id="user-type-form" class="row">
+        <div class="col-md-6 offset-md-3">
+        	<form method="post" action="clientType.php">	
+				<input type="hidden" name="reset" value="true">
+                <button type="submit" class="btn btn-primary">Пройти снова</button>
+        	</form>
+        </div>
+    </div>
 </div>
 </body>
 </html>

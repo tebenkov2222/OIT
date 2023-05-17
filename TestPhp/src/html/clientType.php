@@ -3,17 +3,21 @@
 require_once __DIR__ . '/scripts/fields.php';
 session_start();
 
-if(CheckField($_SESSION['deliveryType'], true, '/^[1,2]{1}$/'))
+if($_POST['reset']){
+	session_destroy();
+}
+
+if($_SESSION['deliveryData'] == 1)
 {
 	header('Location: /results.php');
 	exit();
 }
-if(CheckField($_SESSION['phone'], true, '/^[+7]\d{11}$/'))
+if($_SESSION['clientData'] == 1)
 {
 	header('Location: /deliveryType.php');
 	exit();
 }
-if(CheckField($_SESSION['clientType'], true, '/^[1,2]{1}$/'))
+if($_SESSION['clientData'] == 1)
 {
 	if($_SESSION['clientType'] == 1) header('Location: /clientIndividualData.php');
 	else header('Location: /clientEntityData.php');
@@ -47,6 +51,11 @@ if(CheckField($_SESSION['clientType'], true, '/^[1,2]{1}$/'))
 				    		Юридическое лицо
 				  		</label>
 				  	</div>
+				  	<?php 
+				  		if($_GET['errorType'] == "clientType"){
+				  			echo "<a>Данные введены неверно</a><br>";
+				  		}
+				  	 ?>
 	                <button type="submit" class="btn btn-primary">Submit</button>
             	</form>
 	        </div>
